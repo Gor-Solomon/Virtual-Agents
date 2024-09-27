@@ -938,6 +938,24 @@
           }
         }
       },
+      "Microsoft.Orleans.Reminders/8.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Orleans.Core.Abstractions": "8.2.0",
+          "Microsoft.Orleans.Runtime": "8.2.0",
+          "Microsoft.Orleans.Sdk": "8.2.0"
+        },
+        "compile": {
+          "lib/net8.0/Orleans.Reminders.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Orleans.Reminders.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.Orleans.Runtime/8.2.0": {
         "type": "package",
         "dependencies": {
@@ -1728,6 +1746,7 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "Microsoft.Orleans.Core.Abstractions": "8.2.0",
+          "Microsoft.Orleans.Reminders": "8.2.0",
           "Microsoft.Orleans.Runtime": "8.2.0",
           "Microsoft.Orleans.Sdk": "8.2.0",
           "System.Text.Json": "8.0.4"
@@ -3254,6 +3273,20 @@
         "logo_128.png",
         "microsoft.orleans.core.abstractions.8.2.0.nupkg.sha512",
         "microsoft.orleans.core.abstractions.nuspec"
+      ]
+    },
+    "Microsoft.Orleans.Reminders/8.2.0": {
+      "sha512": "ktDIehhLeIRmzQ3yCPH9YF7RturDMunsIqaXF9A2IyeMYE8s4uXz8yszM+buIz+0mp4k+QqJKd/f86Tz9GyWCg==",
+      "type": "package",
+      "path": "microsoft.orleans.reminders/8.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net8.0/Orleans.Reminders.dll",
+        "lib/net8.0/Orleans.Reminders.xml",
+        "logo_128.png",
+        "microsoft.orleans.reminders.8.2.0.nupkg.sha512",
+        "microsoft.orleans.reminders.nuspec"
       ]
     },
     "Microsoft.Orleans.Runtime/8.2.0": {

@@ -1002,6 +1002,44 @@
           }
         }
       },
+      "Microsoft.Orleans.Reminders/8.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Orleans.Core.Abstractions": "8.2.0",
+          "Microsoft.Orleans.Runtime": "8.2.0",
+          "Microsoft.Orleans.Sdk": "8.2.0"
+        },
+        "compile": {
+          "lib/net8.0/Orleans.Reminders.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Orleans.Reminders.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Orleans.Reminders.AzureStorage/8.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Azure.Core": "1.35.0",
+          "Azure.Data.Tables": "12.8.1",
+          "Microsoft.Orleans.Reminders": "8.2.0",
+          "Microsoft.Orleans.Runtime": "8.2.0",
+          "System.Net.NameResolution": "4.3.0"
+        },
+        "compile": {
+          "lib/net8.0/Orleans.Reminders.AzureStorage.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Orleans.Reminders.AzureStorage.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.Orleans.Runtime/8.2.0": {
         "type": "package",
         "dependencies": {
@@ -1793,6 +1831,7 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "Microsoft.Orleans.Core.Abstractions": "8.2.0",
+          "Microsoft.Orleans.Reminders": "8.2.0",
           "Microsoft.Orleans.Runtime": "8.2.0",
           "Microsoft.Orleans.Sdk": "8.2.0",
           "System.Text.Json": "8.0.4"
@@ -3373,6 +3412,34 @@
         "logo_128.png",
         "microsoft.orleans.persistence.memory.8.2.0.nupkg.sha512",
         "microsoft.orleans.persistence.memory.nuspec"
+      ]
+    },
+    "Microsoft.Orleans.Reminders/8.2.0": {
+      "sha512": "ktDIehhLeIRmzQ3yCPH9YF7RturDMunsIqaXF9A2IyeMYE8s4uXz8yszM+buIz+0mp4k+QqJKd/f86Tz9GyWCg==",
+      "type": "package",
+      "path": "microsoft.orleans.reminders/8.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net8.0/Orleans.Reminders.dll",
+        "lib/net8.0/Orleans.Reminders.xml",
+        "logo_128.png",
+        "microsoft.orleans.reminders.8.2.0.nupkg.sha512",
+        "microsoft.orleans.reminders.nuspec"
+      ]
+    },
+    "Microsoft.Orleans.Reminders.AzureStorage/8.2.0": {
+      "sha512": "JductZdfIF8w//GUSAccv00qmmGEVxYF/gLeiTV0Ngtl0XYaQn0Fo2DxFpF7V1CL8KUxkPm1/0xEyn1LHNumRw==",
+      "type": "package",
+      "path": "microsoft.orleans.reminders.azurestorage/8.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net8.0/Orleans.Reminders.AzureStorage.dll",
+        "lib/net8.0/Orleans.Reminders.AzureStorage.xml",
+        "logo_128.png",
+        "microsoft.orleans.reminders.azurestorage.8.2.0.nupkg.sha512",
+        "microsoft.orleans.reminders.azurestorage.nuspec"
       ]
     },
     "Microsoft.Orleans.Runtime/8.2.0": {
@@ -5488,6 +5555,7 @@
       "ActiveAgents.Grains >= 1.0.0",
       "Microsoft.Orleans.Clustering.AzureStorage >= 8.2.0",
       "Microsoft.Orleans.Persistence.AzureStorage >= 8.2.0",
+      "Microsoft.Orleans.Reminders.AzureStorage >= 8.2.0",
       "Microsoft.Orleans.Runtime >= 8.2.0",
       "Microsoft.Orleans.Server >= 8.2.0",
       "System.Text.Json >= 8.0.4"
@@ -5548,6 +5616,10 @@
             "version": "[8.2.0, )"
           },
           "Microsoft.Orleans.Persistence.AzureStorage": {
+            "target": "Package",
+            "version": "[8.2.0, )"
+          },
+          "Microsoft.Orleans.Reminders.AzureStorage": {
             "target": "Package",
             "version": "[8.2.0, )"
           },

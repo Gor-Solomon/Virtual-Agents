@@ -1,4 +1,5 @@
 ﻿using Orleans;
+using System;
 using System.Threading.Tasks;
 
 namespace ActiveAgents.Grains.Abstraction;
@@ -13,4 +14,6 @@ public interface ICheckingAccountGrain : IGrainWithGuidKey
     Task Debit(decimal amount);
 
     Task Credit(decimal amount);
+
+    Task AddReccuringPayment(Guid id, decimal amount, int frequncyInMinuets);
 }

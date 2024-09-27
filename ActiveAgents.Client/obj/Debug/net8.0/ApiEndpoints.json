@@ -1,7 +1,61 @@
 [
   {
     "ContainingType": "ActiveAgents.Client.Program\u002B\u003C\u003Ec",
-    "Method": "\u003CMain\u003Eb__2_2",
+    "Method": "\u003CMain\u003Eb__2_6",
+    "RelativePath": "atm",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "amount",
+        "Type": "System.Decimal",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 201
+      }
+    ]
+  },
+  {
+    "ContainingType": "ActiveAgents.Client.Program\u002B\u003C\u003Ec",
+    "Method": "\u003CMain\u003Eb__2_7",
+    "RelativePath": "atm/{atmId:guid}/withdraw",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "atmId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "accountId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "amount",
+        "Type": "System.Decimal",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ActiveAgents.Client.Program\u002B\u003C\u003Ec",
+    "Method": "\u003CMain\u003Eb__2_1",
     "RelativePath": "checkingAccount",
     "HttpMethod": "POST",
     "IsController": false,
@@ -23,7 +77,7 @@
   },
   {
     "ContainingType": "ActiveAgents.Client.Program\u002B\u003C\u003Ec",
-    "Method": "\u003CMain\u003Eb__2_1",
+    "Method": "\u003CMain\u003Eb__2_2",
     "RelativePath": "checkingAccount/{grainId:guid}",
     "HttpMethod": "GET",
     "IsController": false,
@@ -59,7 +113,7 @@
         "IsRequired": true
       },
       {
-        "Name": "ammount",
+        "Name": "amount",
         "Type": "System.Decimal",
         "IsRequired": true
       }
@@ -86,8 +140,40 @@
         "IsRequired": true
       },
       {
-        "Name": "ammount",
+        "Name": "amount",
         "Type": "System.Decimal",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ActiveAgents.Client.Program\u002B\u003C\u003Ec",
+    "Method": "\u003CMain\u003Eb__2_5",
+    "RelativePath": "checkingAccount/{grainId:guid}/recuringPayment",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "grainId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "amount",
+        "Type": "System.Decimal",
+        "IsRequired": true
+      },
+      {
+        "Name": "frequencyInSeconds",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

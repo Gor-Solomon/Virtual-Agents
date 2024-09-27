@@ -8,6 +8,7 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Orleans.Clustering.AzureStorage" Version="8.2.0" />
 		<PackageReference Include="Microsoft.Orleans.Persistence.AzureStorage" Version="8.2.0" />
+		<PackageReference Include="Microsoft.Orleans.Reminders.AzureStorage" Version="8.2.0" />
 		<PackageReference Include="Microsoft.Orleans.Runtime" Version="8.2.0" />
 		<PackageReference Include="Microsoft.Orleans.Server" Version="8.2.0" />
 		<PackageReference Include="System.Text.Json" Version="8.0.4" />

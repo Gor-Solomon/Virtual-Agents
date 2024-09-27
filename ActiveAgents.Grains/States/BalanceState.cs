@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 namespace ActiveAgents.Grains.States;
 
 [GenerateSerializer]
-public class BalanceState
+[Alias("ActiveAgents.Grains.States.BalanceState")]
+public record BalanceState
 {
     [Id(0)]
     public decimal Balance { get; set; }

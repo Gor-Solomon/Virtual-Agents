@@ -138,6 +138,10 @@
               "target": "Package",
               "version": "[8.2.0, )"
             },
+            "Microsoft.Orleans.Reminders": {
+              "target": "Package",
+              "version": "[8.2.0, )"
+            },
             "Microsoft.Orleans.Runtime": {
               "target": "Package",
               "version": "[8.2.0, )"

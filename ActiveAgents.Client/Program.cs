@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json;
 using Orleans;
 using Orleans.Configuration;
 using Orleans.Hosting;
@@ -34,13 +35,6 @@ public class Program
         });
         var app = builder.Build();
 
-        app.MapGet("checkingAccount/{grainId:guid}", async (Guid grainId, IClusterClient cluster) =>
-        {
-            var grain = cluster.GetGrain<ICheckingAccountGrain>(grainId);
-            var result = await grain.GetBalance();
-            return TypedResults.Ok(result);
-        });
-
         app.MapPost("checkingAccount", async (CreateContract createContract, IClusterClient cluster) =>
         {
             var grainId = Guid.NewGuid();
@@ -50,17 +44,48 @@ public class Program
             return TypedResults.Created($"/checkingAccount/{grainId}");
         });
 
-        app.MapPost("checkingAccount/{grainId:guid}/debit", async ([FromRoute, Required] Guid grainId, [FromQuery, Required] decimal ammount, IClusterClient cluster) =>
+        app.MapGet("checkingAccount/{grainId:guid}", async (Guid grainId, IClusterClient cluster) =>
         {
             var grain = cluster.GetGrain<ICheckingAccountGrain>(grainId);
-            await grain.Debit(ammount);
+            var result = await grain.GetBalance();
+            return TypedResults.Ok(result);
+        });
+
+        app.MapPost("checkingAccount/{grainId:guid}/debit", async ([FromRoute, Required] Guid grainId, [FromQuery, Required] decimal amount, IClusterClient cluster) =>
+        {
+            var grain = cluster.GetGrain<ICheckingAccountGrain>(grainId);
+            await grain.Debit(amount);
             return TypedResults.Ok();
         });
 
-        app.MapPost("checkingAccount/{grainId:guid}/credit", async ([FromRoute, Required] Guid grainId, [FromQuery, Required] decimal ammount, IClusterClient cluster) =>
+        app.MapPost("checkingAccount/{grainId:guid}/credit", async ([FromRoute, Required] Guid grainId, [FromQuery, Required] decimal amount, IClusterClient cluster) =>
         {
             var grain = cluster.GetGrain<ICheckingAccountGrain>(grainId);
-            await grain.Credit(ammount);
+            await grain.Credit(amount);
+            return TypedResults.Ok();
+        });
+
+        app.MapPost("checkingAccount/{grainId:guid}/recuringPayment", async ([FromRoute, Required] Guid grainId, [FromQuery, Required] decimal amount, [FromQuery, Required] int frequencyInSeconds, IClusterClient cluster) =>
+        {
+            var grain = cluster.GetGrain<ICheckingAccountGrain>(grainId);
+            await grain.AddReccuringPayment(grainId, amount, frequencyInSeconds);
+
+            return TypedResults.Ok();
+        });
+
+        app.MapPost("atm", async ([FromQuery, Required] decimal amount, IClusterClient cluster) =>
+        {
+            var grainId = Guid.NewGuid();
+            var grain = cluster.GetGrain<IAtmGrain>(grainId);
+            await grain.Initialise(amount);
+
+            return TypedResults.Created($"/atm/{grainId}");
+        });
+
+        app.MapPost("atm/{atmId:guid}/withdraw", async ([FromRoute, Required] Guid atmId, [FromQuery, Required] Guid accountId, [FromQuery, Required] decimal amount, IClusterClient cluster) =>
+        {
+            var grain = cluster.GetGrain<IAtmGrain>(atmId);
+            await grain.Withdraw(accountId, amount);
             return TypedResults.Ok();
         });
 

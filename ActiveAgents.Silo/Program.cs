@@ -37,11 +37,13 @@ public class Program
                    {
                        options.TableServiceClient = new Azure.Data.Tables.TableServiceClient("UseDevelopmentStorage=true;");
                    });
+
                    siloBuilder.Configure<ClusterOptions>(options =>
                    {
                        options.ClusterId = ClusterName;
                        options.ServiceId = ClusterId;
                    });
+
                    siloBuilder.AddAzureTableGrainStorage("tableStorage", configureOptions: options =>
                    {
                        options.TableServiceClient = new Azure.Data.Tables.TableServiceClient("UseDevelopmentStorage=true;");
@@ -53,6 +55,11 @@ public class Program
                    siloBuilder.AddAzureTableGrainStorageAsDefault(configureOptions: options =>
                    {
                        options.TableServiceClient = new Azure.Data.Tables.TableServiceClient("UseDevelopmentStorage=true;");
+                   });
+
+                   siloBuilder.UseAzureTableReminderService(configureOptions: options =>
+                   {
+                       options.Configure(o => o.TableServiceClient = new Azure.Data.Tables.TableServiceClient("UseDevelopmentStorage=true;"));
                    });
                    //siloBuilder.Configure<GrainCollectionOptions>(options =>
                    //{
