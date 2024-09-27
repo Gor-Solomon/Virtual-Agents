@@ -1,0 +1,102 @@
+[
+  {
+    "ContainingType": "ActiveAgents.Client.Program\u002B\u003C\u003Ec",
+    "Method": "\u003CMain\u003Eb__2_2",
+    "RelativePath": "checkingAccount",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createContract",
+        "Type": "ActiveAgents.Client.Contracts.CreateContract",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 201
+      }
+    ]
+  },
+  {
+    "ContainingType": "ActiveAgents.Client.Program\u002B\u003C\u003Ec",
+    "Method": "\u003CMain\u003Eb__2_1",
+    "RelativePath": "checkingAccount/{grainId:guid}",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "grainId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Decimal",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ActiveAgents.Client.Program\u002B\u003C\u003Ec",
+    "Method": "\u003CMain\u003Eb__2_4",
+    "RelativePath": "checkingAccount/{grainId:guid}/credit",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "grainId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "ammount",
+        "Type": "System.Decimal",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ActiveAgents.Client.Program\u002B\u003C\u003Ec",
+    "Method": "\u003CMain\u003Eb__2_3",
+    "RelativePath": "checkingAccount/{grainId:guid}/debit",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "grainId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "ammount",
+        "Type": "System.Decimal",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  }
+]
