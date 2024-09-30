@@ -1,7 +1,175 @@
 [
   {
     "ContainingType": "ActiveAgents.Client.Program\u002B\u003C\u003Ec",
-    "Method": "\u003CMain\u003Eb__2_6",
+    "Method": "\u003CAccounts\u003Eb__3_0",
+    "RelativePath": "accounts",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createContract",
+        "Type": "ActiveAgents.Client.Contracts.CreateContract",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ActiveAgents.Client.Program\u002B\u003C\u003Ec",
+    "Method": "\u003CAccounts\u003Eb__3_1",
+    "RelativePath": "accounts/{grainId:guid}",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "grainId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Nullable\u00601[[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ActiveAgents.Client.Program\u002B\u003C\u003Ec",
+    "Method": "\u003CAccounts\u003Eb__3_3",
+    "RelativePath": "accounts/{grainId:guid}/credit",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "grainId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "amount",
+        "Type": "System.Decimal",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ActiveAgents.Client.Program\u002B\u003C\u003Ec",
+    "Method": "\u003CAccounts\u003Eb__3_2",
+    "RelativePath": "accounts/{grainId:guid}/debit",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "grainId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "amount",
+        "Type": "System.Decimal",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ActiveAgents.Client.Program\u002B\u003C\u003Ec",
+    "Method": "\u003CAccounts\u003Eb__3_4",
+    "RelativePath": "accounts/{grainId:guid}/recuringPayment",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "grainId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "amount",
+        "Type": "System.Decimal",
+        "IsRequired": true
+      },
+      {
+        "Name": "frequencyInSeconds",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ActiveAgents.Client.Program\u002B\u003C\u003Ec",
+    "Method": "\u003CAccounts\u003Eb__3_5",
+    "RelativePath": "accounts/transfer",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fromAccountId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "toAccountId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "amount",
+        "Type": "System.Decimal",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[ActiveAgents.Grains.States.TransactionState, ActiveAgents.Grains, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ActiveAgents.Client.Program\u002B\u003C\u003Ec",
+    "Method": "\u003CATM\u003Eb__4_0",
     "RelativePath": "atm",
     "HttpMethod": "POST",
     "IsController": false,
@@ -15,15 +183,41 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 201
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
       }
     ]
   },
   {
     "ContainingType": "ActiveAgents.Client.Program\u002B\u003C\u003Ec",
-    "Method": "\u003CMain\u003Eb__2_7",
+    "Method": "\u003CATM\u003Eb__4_1",
+    "RelativePath": "atm/{atmId:guid}",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "atmId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Decimal",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ActiveAgents.Client.Program\u002B\u003C\u003Ec",
+    "Method": "\u003CATM\u003Eb__4_2",
     "RelativePath": "atm/{atmId:guid}/withdraw",
     "HttpMethod": "POST",
     "IsController": false,
@@ -55,43 +249,21 @@
   },
   {
     "ContainingType": "ActiveAgents.Client.Program\u002B\u003C\u003Ec",
-    "Method": "\u003CMain\u003Eb__2_1",
-    "RelativePath": "checkingAccount",
+    "Method": "\u003CCustomers\u003Eb__5_0",
+    "RelativePath": "customer/",
     "HttpMethod": "POST",
     "IsController": false,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "createContract",
-        "Type": "ActiveAgents.Client.Contracts.CreateContract",
+        "Name": "fullName",
+        "Type": "System.String",
         "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 201
-      }
-    ]
-  },
-  {
-    "ContainingType": "ActiveAgents.Client.Program\u002B\u003C\u003Ec",
-    "Method": "\u003CMain\u003Eb__2_2",
-    "RelativePath": "checkingAccount/{grainId:guid}",
-    "HttpMethod": "GET",
-    "IsController": false,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "grainId",
         "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Decimal",
         "MediaTypes": [
           "application/json"
         ],
@@ -101,86 +273,53 @@
   },
   {
     "ContainingType": "ActiveAgents.Client.Program\u002B\u003C\u003Ec",
-    "Method": "\u003CMain\u003Eb__2_4",
-    "RelativePath": "checkingAccount/{grainId:guid}/credit",
+    "Method": "\u003CCustomers\u003Eb__5_2",
+    "RelativePath": "customer/{customerId:guid}/account",
     "HttpMethod": "POST",
     "IsController": false,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "grainId",
+        "Name": "customerId",
         "Type": "System.Guid",
         "IsRequired": true
       },
       {
-        "Name": "amount",
+        "Name": "OpeningBalance",
         "Type": "System.Decimal",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Void",
-        "MediaTypes": [],
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "application/json"
+        ],
         "StatusCode": 200
       }
     ]
   },
   {
     "ContainingType": "ActiveAgents.Client.Program\u002B\u003C\u003Ec",
-    "Method": "\u003CMain\u003Eb__2_3",
-    "RelativePath": "checkingAccount/{grainId:guid}/debit",
-    "HttpMethod": "POST",
+    "Method": "\u003CCustomers\u003Eb__5_1",
+    "RelativePath": "customer/{customerId:guid}/networth",
+    "HttpMethod": "GET",
     "IsController": false,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "grainId",
+        "Name": "customerId",
         "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "amount",
-        "Type": "System.Decimal",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "ActiveAgents.Client.Program\u002B\u003C\u003Ec",
-    "Method": "\u003CMain\u003Eb__2_5",
-    "RelativePath": "checkingAccount/{grainId:guid}/recuringPayment",
-    "HttpMethod": "POST",
-    "IsController": false,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "grainId",
-        "Type": "System.Guid",
-        "IsRequired": true
-      },
-      {
-        "Name": "amount",
-        "Type": "System.Decimal",
-        "IsRequired": true
-      },
-      {
-        "Name": "frequencyInSeconds",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
+        "Type": "\u003C\u003Ef__AnonymousType0\u00603[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.List\u00601[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "application/json"
+        ],
         "StatusCode": 200
       }
     ]

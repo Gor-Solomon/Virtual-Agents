@@ -59,6 +59,10 @@
               "target": "Package",
               "version": "[8.2.0, )"
             },
+            "Microsoft.Orleans.Transactions": {
+              "target": "Package",
+              "version": "[8.2.0, )"
+            },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.21.0, )"
@@ -147,6 +151,14 @@
               "version": "[8.2.0, )"
             },
             "Microsoft.Orleans.Sdk": {
+              "target": "Package",
+              "version": "[8.2.0, )"
+            },
+            "Microsoft.Orleans.Streaming": {
+              "target": "Package",
+              "version": "[8.2.0, )"
+            },
+            "Microsoft.Orleans.Transactions": {
               "target": "Package",
               "version": "[8.2.0, )"
             },

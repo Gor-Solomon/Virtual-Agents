@@ -9,7 +9,7 @@ namespace ActiveAgents.Grains.States;
 
 [GenerateSerializer]
 [Alias("ActiveAgents.Grains.States.ReccuringPaymentState")]
-public class ReccuringPaymentState
+public record ReccuringPaymentState
 {
     [Id(0)]
     public Guid Id { get; set; }

@@ -1025,6 +1025,38 @@
           }
         }
       },
+      "Microsoft.Orleans.Streaming/8.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Orleans.Runtime": "8.2.0"
+        },
+        "compile": {
+          "lib/net8.0/Orleans.Streaming.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Orleans.Streaming.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Orleans.Transactions/8.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Orleans.Runtime": "8.2.0"
+        },
+        "compile": {
+          "lib/net8.0/Orleans.Transactions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Orleans.Transactions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.21.0": {
         "type": "package",
         "build": {
@@ -1749,6 +1781,8 @@
           "Microsoft.Orleans.Reminders": "8.2.0",
           "Microsoft.Orleans.Runtime": "8.2.0",
           "Microsoft.Orleans.Sdk": "8.2.0",
+          "Microsoft.Orleans.Streaming": "8.2.0",
+          "Microsoft.Orleans.Transactions": "8.2.0",
           "System.Text.Json": "8.0.4"
         },
         "compile": {
@@ -3348,6 +3382,34 @@
         "logo_128.png",
         "microsoft.orleans.serialization.abstractions.8.2.0.nupkg.sha512",
         "microsoft.orleans.serialization.abstractions.nuspec"
+      ]
+    },
+    "Microsoft.Orleans.Streaming/8.2.0": {
+      "sha512": "Pk+siwHyxkSe+FxWDscRgnxh4GOYxEZrCJKz/tmv2m0P3+fGyM/8zFvc6eMRW8zJYvwtg6LIQ/OGTy/cEovj7A==",
+      "type": "package",
+      "path": "microsoft.orleans.streaming/8.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net8.0/Orleans.Streaming.dll",
+        "lib/net8.0/Orleans.Streaming.xml",
+        "logo_128.png",
+        "microsoft.orleans.streaming.8.2.0.nupkg.sha512",
+        "microsoft.orleans.streaming.nuspec"
+      ]
+    },
+    "Microsoft.Orleans.Transactions/8.2.0": {
+      "sha512": "0bWDJ2PU6NpqxpwnV1xl1SrEH1pssxlfC8Rd2szfRWlpDmCkNn2lYgx1DF5eGBz2NoVrmL4/wGyDpieXuPAlyw==",
+      "type": "package",
+      "path": "microsoft.orleans.transactions/8.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net8.0/Orleans.Transactions.dll",
+        "lib/net8.0/Orleans.Transactions.xml",
+        "logo_128.png",
+        "microsoft.orleans.transactions.8.2.0.nupkg.sha512",
+        "microsoft.orleans.transactions.nuspec"
       ]
     },
     "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.21.0": {
@@ -5470,6 +5532,7 @@
       "ActiveAgents.Grains >= 1.0.0",
       "Microsoft.Orleans.Client >= 8.2.0",
       "Microsoft.Orleans.Clustering.AzureStorage >= 8.2.0",
+      "Microsoft.Orleans.Transactions >= 8.2.0",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.21.0",
       "System.Text.Json >= 8.0.4"
     ]
@@ -5529,6 +5592,10 @@
             "version": "[8.2.0, )"
           },
           "Microsoft.Orleans.Clustering.AzureStorage": {
+            "target": "Package",
+            "version": "[8.2.0, )"
+          },
+          "Microsoft.Orleans.Transactions": {
             "target": "Package",
             "version": "[8.2.0, )"
           },

@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Azure;
+﻿using Azure.Storage.Queues;
+using Microsoft.Extensions.Azure;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Orleans.Configuration;
@@ -58,6 +59,24 @@ public class Program
                    });
 
                    siloBuilder.UseAzureTableReminderService(configureOptions: options =>
+                   {
+                       options.Configure(o => o.TableServiceClient = new Azure.Data.Tables.TableServiceClient("UseDevelopmentStorage=true;"));
+                   });
+
+                   siloBuilder.AddAzureTableTransactionalStateStorageAsDefault(options =>
+                   {
+                       options.Configure(o => o.TableServiceClient = new Azure.Data.Tables.TableServiceClient("UseDevelopmentStorage=true;"));
+                   });
+
+                   siloBuilder.UseTransactions();
+
+                   siloBuilder.AddAzureQueueStreams("QueueStreamProvider", options =>
+                   {
+                       options.Configure(o =>
+                       {
+                           o.QueueServiceClient = new QueueServiceClient("UseDevelopmentStorage=true;");
+                       });
+                   }).AddAzureTableGrainStorage("PubSubStore", options =>
                    {
                        options.Configure(o => o.TableServiceClient = new Azure.Data.Tables.TableServiceClient("UseDevelopmentStorage=true;"));
                    });
