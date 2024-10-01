@@ -132,4 +132,25 @@ public class AccountGrain : Grain, IAccountGrain, IRemindable
             });
         }
     }
+
+    public async Task FireAndForget()
+    {
+        await Task.Delay(TimeSpan.FromSeconds(5));
+        throw new NotSupportedException("This work cannot be done");
+    }
+
+    public async Task CancelableWork(long workInSeconds, GrainCancellationToken cancellationToken)
+    {
+        try
+        {
+            await Task.Delay(TimeSpan.FromSeconds(workInSeconds), cancellationToken.CancellationToken);
+        }
+        catch (TaskCanceledException ex)
+        {
+            Console.WriteLine("THE TASK WAS CANCELED............!");
+            return;
+        }
+
+        Console.WriteLine("THE TASK WAS NOT CANCELED............!");
+    }
 }

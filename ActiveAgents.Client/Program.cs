@@ -14,6 +14,9 @@ using Orleans.Streams;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace ActiveAgents.Client;
 
@@ -104,6 +107,26 @@ public class Program
         {
             var grain = cluster.GetGrain<IAccountGrain>(grainId);
             await grain.AddReccuringPayment(grainId, amount, frequencyInSeconds);
+
+            return TypedResults.Ok();
+        });
+
+        app.MapPost("accounts/{grainId:guid}/FireAndForget", async ([FromRoute, Required] Guid grainId, IClusterClient cluster) =>
+        {
+            var grain = cluster.GetGrain<IAccountGrain>(grainId);
+            await grain.FireAndForget();
+
+            return TypedResults.Ok();
+        });
+
+        app.MapPost("accounts/{grainId:guid}/CancelableWork", async ([FromRoute, Required] Guid grainId, IClusterClient cluster, CancellationToken cancellationToken) =>
+        {
+            var grain = cluster.GetGrain<IAccountGrain>(grainId);
+            
+            var grainCancelationTokenSource = new GrainCancellationTokenSource();
+            cancellationToken.Register(() => grainCancelationTokenSource.Cancel());
+
+            await grain.CancelableWork(5, grainCancelationTokenSource.Token);
 
             return TypedResults.Ok();
         });

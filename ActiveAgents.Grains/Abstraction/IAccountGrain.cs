@@ -1,4 +1,5 @@
 ﻿using Orleans;
+using Orleans.Concurrency;
 using System;
 using System.Threading.Tasks;
 
@@ -23,5 +24,12 @@ public interface IAccountGrain : IGrainWithGuidKey
     [Alias("Credit")]
     Task Credit(decimal amount);
 
+    [Alias("AddReccuringPayment")]
     Task AddReccuringPayment(Guid id, decimal amount, int frequncyInMinuets);
+
+    [OneWay]
+    [Alias("FireAndForget")]
+    Task FireAndForget();
+
+    Task CancelableWork(long workInSeconds, GrainCancellationToken cancellationToken);
 }

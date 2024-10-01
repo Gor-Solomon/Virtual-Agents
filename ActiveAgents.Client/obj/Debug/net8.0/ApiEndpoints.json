@@ -49,6 +49,28 @@
   },
   {
     "ContainingType": "ActiveAgents.Client.Program\u002B\u003C\u003Ec",
+    "Method": "\u003CAccounts\u003Eb__3_6",
+    "RelativePath": "accounts/{grainId:guid}/CancelableWork",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "grainId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ActiveAgents.Client.Program\u002B\u003C\u003Ec",
     "Method": "\u003CAccounts\u003Eb__3_3",
     "RelativePath": "accounts/{grainId:guid}/credit",
     "HttpMethod": "POST",
@@ -103,6 +125,28 @@
   },
   {
     "ContainingType": "ActiveAgents.Client.Program\u002B\u003C\u003Ec",
+    "Method": "\u003CAccounts\u003Eb__3_5",
+    "RelativePath": "accounts/{grainId:guid}/FireAndForget",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "grainId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ActiveAgents.Client.Program\u002B\u003C\u003Ec",
     "Method": "\u003CAccounts\u003Eb__3_4",
     "RelativePath": "accounts/{grainId:guid}/recuringPayment",
     "HttpMethod": "POST",
@@ -135,7 +179,7 @@
   },
   {
     "ContainingType": "ActiveAgents.Client.Program\u002B\u003C\u003Ec",
-    "Method": "\u003CAccounts\u003Eb__3_5",
+    "Method": "\u003CAccounts\u003Eb__3_7",
     "RelativePath": "accounts/transfer",
     "HttpMethod": "POST",
     "IsController": false,

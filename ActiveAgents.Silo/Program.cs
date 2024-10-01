@@ -1,4 +1,5 @@
-﻿using Azure.Storage.Queues;
+﻿using ActiveAgents.Grains.Filters;
+using Azure.Storage.Queues;
 using Microsoft.Extensions.Azure;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -76,10 +77,16 @@ public class Program
                        {
                            o.QueueServiceClient = new QueueServiceClient("UseDevelopmentStorage=true;");
                        });
+
+                       //options.ConfigurePullingAgent(c => c.Configure(s => s.GetQueueMsgsTimerPeriod = TimeSpan.FromSeconds(10)));
+
                    }).AddAzureTableGrainStorage("PubSubStore", options =>
                    {
                        options.Configure(o => o.TableServiceClient = new Azure.Data.Tables.TableServiceClient("UseDevelopmentStorage=true;"));
                    });
+
+                   siloBuilder.AddIncomingGrainCallFilter<LoggingIncomingGrainCallFilter>();
+                   siloBuilder.AddOutgoingGrainCallFilter<LoggingOutgoingGrainCallFilter>();
                    //siloBuilder.Configure<GrainCollectionOptions>(options =>
                    //{
                    //    options.CollectionQuantum = TimeSpan.FromSeconds(20);
